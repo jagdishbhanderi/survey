@@ -33,6 +33,14 @@ group :doc do
 end
 
 gem 'devise'
+gem 'omniauth'
+gem 'omniauth-facebook'
+gem 'oauth2'
+gem 'omniauth-google-oauth2'
+gem 'omniauth-twitter'  
+gem 'fb_graph'
+gem 'social-share-button'
+gem "omnicontacts"
 
 # Use ActiveModel has_secure_password
 # gem 'bcrypt-ruby', '~> 3.0.0'
