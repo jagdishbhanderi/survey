@@ -24,6 +24,10 @@ Devise.setup do |config|
   require "omniauth-facebook"
   config.omniauth :facebook, "237756066384592", "41eabc944ea98f59b500ddbf3e5ae0c0", { :scope => 'email, offline_access', :client_options => {:ssl => {:ca_file => '/usr/lib/ssl/certs/ca-certificates.crt'}}}
   
+  require "omniauth-google-oauth2"
+  config.omniauth :google_oauth2, "889206350278.apps.googleusercontent.com", "gHx55Vll8WP_oQQrJQJT_DZm", {}
+
+  config.omniauth :twitter, "fyF3vDY50c6XFbta8pJLCw", "dgMYDkPEgYd1cYfsS1g0PmPtiIfRRMRWdlArcDrb8"
 
   # ==> Configuration for any authentication mechanism
   # Configure which keys are used when authenticating a user. The default is
