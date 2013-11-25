@@ -1,0 +1,71 @@
+<center>  
+  <p id="notice"><%= notice %></p>
+  <script type="text/javascript" src="http://feather.aviary.com/js/feather.js"></script> 
+    <!-- Instantiate Feather --> 
+  <script type='text/javascript'>
+  var a;
+  var featherEditor = new Aviary.Feather({
+    apiKey: '38ab3a4336662e08',
+    apiVersion: 1,
+    theme: 'dark', // Check out our new 'light' and 'dark' themes!
+    tools: 'all',
+    appendTo: '',
+    onSave: function(imageID, newURL) {
+      var img = document.getElementById(imageID);
+      img.src = newURL;
+      a = newURL;
+      alert(a);
+      $.ajax({
+        url:"/products/<%= @product.id %>/done",
+        data:{ "productphoto_url": a },
+        type:"POST",
+        dataType:"html",
+        success:function(response){
+         window.location.replace("<%= products_path %>");
+        },
+        error: function(xhr, ajaxOptions, thrownError){
+         alert(xhr.responseText);
+        }
+      });
+    },
+    onError: function(errorObj) {
+      alert(errorObj.message);
+    }
+  });
+  function launchEditor(id, src) {
+    featherEditor.launch({
+      image: id,
+      url: src
+    });
+  return false;
+  }
+</script>
+<style>
+.avpw_powered_text
+{
+  display: none !important;
+}
+</style>
+
+  <p>
+    <strong>Name:</strong>
+    <%= @product.name %>
+  </p>
+
+  <p>
+    <strong>Price:</strong>
+    <%= @product.price %>
+  </p>
+
+  <div id='injection_site'></div> 
+  <% if  @product.aviary_photo.blank? %>
+    <img id='image1' src='<%= @product.productphoto.url %>'/> 
+    <p><input type='image' src='http://images.aviary.com/images/edit-photo.png' value='Edit photo' onclick="return launchEditor('image1', '<%= @product.productphoto.url %>');" /></p> 
+  <%else %>
+    <img id='image1' src='<%= @product.aviary_photo %>'/> 
+    <p><input type='image' src='http://images.aviary.com/images/edit-photo.png' value='Edit photo' onclick="return launchEditor('image1', '<%= @product.aviary_photo %>');" /></p> 
+  <%end%>
+  
+  <%= link_to 'Edit', edit_product_path(@product) %> |
+  <%= link_to 'Back', products_path %>
+</center>

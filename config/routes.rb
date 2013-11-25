@@ -1,7 +1,10 @@
 SocialDemoApp::Application.routes.draw do
+  resources :products
+
   get "home/index"
   root to: "home#index"
   devise_for :users, :controllers => { :omniauth_callbacks => "users/omniauth_callbacks" }
+  match '/products/:id/done', :to => "products#done" , :as => :done, via: [:get, :post]
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".
 
