@@ -106,6 +106,7 @@ GEM
     omnicontacts (0.3.4)
       json
       rack
+    oohlalog (1.1.1)
     orm_adapter (0.4.0)
     paperclip (3.5.2)
       activemodel (>= 3.0.0)
@@ -193,6 +194,7 @@ DEPENDENCIES
   omniauth-google-oauth2
   omniauth-twitter
   omnicontacts
+  oohlalog
   paperclip (~> 3.5.1)
   paperclip-dropbox (>= 1)
   pg

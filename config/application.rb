@@ -8,7 +8,7 @@ Bundler.require(:default, Rails.env)
 
 module SocialDemoApp
   class Application < Rails::Application
-
+    Oohlalog.api_key = "8a5f06d6-739e-4f8a-ab13-1d8b8db4bc4a"
     config.assets.initialize_on_precompile = false
     # Settings in config/environments/* take precedence over those specified here.
     # Application configuration should go into files in config/initializers

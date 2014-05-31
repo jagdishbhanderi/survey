@@ -50,6 +50,8 @@ gem "omnicontacts"
 gem "paperclip", "~> 3.5.1"
 gem "paperclip-dropbox", ">= 1"
 gem "dropbox-sdk", "~> 1.6.2"
+gem 'oohlalog'
+
 # Use ActiveModel has_secure_password
 # gem 'bcrypt-ruby', '~> 3.0.0'
 
